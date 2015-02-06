@@ -26,6 +26,6 @@ for line in args.archivo.readlines():
            checksum = checksum.upper()
            line = ':' + line
            if line == ':00000001FF':
-                  print(line + '\r')
+                  print(line)
            else:
-                  print(line+checksum + '\r')
+                  print(line+checksum)
