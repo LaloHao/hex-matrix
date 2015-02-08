@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <textarea id="codigo"></textarea>
+    <button id="create">Create file</button>
+    <a download="info.txt" id="downloadlink" style="display: none">
+      <div id="hora"></div>
+    </a>
+
+    <div id="container"></div>
+    <script>
+      for(var m=8;m>1;m--)
+       {
+        for(var n=8;n>1;n--)
+         {
+          var input = document.createElement('input');
+          input.type = "checkbox";
+          input.id = m.toString() + ',' + n.toString();
+                                      
+          container.appendChild(input);
+         }
+       container.appendChild(document.createElement('br'));
+      }
+
+      document.getElementById('8,8').focus();
+      var x = y = 8;
+      
+      document.onkeydown = function(evt)
+       {
+        evt = evt || window.event;
+                        
+        if (evt.ctrlKey && evt.keyCode == 72)
+         {
+          alert("Ayuda");
+         }
+
+        if (evt.ctrlKey && evt.keyCode == 37) //izquierda
+         {
+          if(x < 8)
+            x++ && document.getElementById(y.toString() + ',' + x.toString()).focus();
+         }
+
+        if (evt.ctrlKey && evt.keyCode == 39) //derecha
+         {
+          if(x > 1)
+            x-- && document.getElementById(y.toString() + ',' + x.toString()).focus();
+         }
+        if (evt.ctrlKey && evt.keyCode == 38) //arriba
+         {
+          if(y < 8)
+            y++ && document.getElementById(y.toString() + ',' + x.toString()).focus();
+         }
+        if (evt.ctrlKey && evt.keyCode == 40) //abajo
+         {
+          if(y > 1)
+           y-- && document.getElementById(y.toString() + ',' + x.toString()).focus();
+        }
+
+        if (evt.ctrlKey && evt.keyCode == 71) //C-g
+         {
+          document.getElementById('downloadlink').href = makeTextFile(codigo.value);
+          document.getElementById('downloadlink').style.display = 'block';
+          document.getElementById('hora').innerHTML = "Generado " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+          //alert("C-g");
+         }
+
+        if (evt.ctrlKey && evt.keyCode == 65) //C-a
+         {
+          alert("C-a");
+         }
+                        
+
+        if (evt.altKey && evt.keyCode == 37)
+         {
+          alert("M-left");
+         }
+                        
+       };
+
+      var textFile = null,
+                     makeTextFile = function (text)
+                      {
+                       var data = new Blob([text], {type: 'text/plain'});
+                        
+                       if (textFile !== null)
+                        {
+                        window.URL.revokeObjectURL(textFile);
+                        }
+
+                       textFile = window.URL.createObjectURL(data);
+                        
+                       return textFile;
+                      };
+    </script>
+  </body>
+</html>
