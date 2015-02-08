@@ -29,6 +29,7 @@
       document.getElementById('8,8').focus();
       var x = y = 8;
       var value = 0;
+      var repeticion = 8;
       
       document.onkeydown = function(evt)
        {
@@ -66,26 +67,26 @@
           document.getElementById('downloadlink').href = makeTextFile(codigo.value);
           document.getElementById('downloadlink').style.display = 'block';
           document.getElementById('hora').innerHTML = "Generado " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
-          //alert("C-g");
          }
 
         if (evt.ctrlKey && evt.keyCode == 65) //C-a
          {
-          //alert("C-a");
-          for(var m=8;m>=1;m--)
+          for(var i=1;i <= repeticion;i++)
            {
-            value = 0;
-            for(var n=8;n>=1;n--)
+            for(var m=8;m>=1;m--)
              {
-              if(document.getElementById(m.toString() + ',' + n.toString()).checked)
-              {
-               value += Math.pow(2, n-1);
-               //alert("Checada" + m.toString() + ',' + n.toString());
-              }
+              value = 0;
+              for(var n=8;n>=1;n--)
+               {
+                if(document.getElementById(m.toString() + ',' + n.toString()).checked)
+               {
+                value += Math.pow(2, n-1);
+               }
+               }
+              document.getElementById('codigo').innerHTML += value + ' ';
              }
-             document.getElementById('codigo').innerHTML += value + ' ';
+            document.getElementById('codigo').innerHTML += ';\n';
            }
-           document.getElementById('codigo').innerHTML += ';\n';
           }
                         
 
