@@ -13,9 +13,9 @@
 
 
     <script>
-      for(var m=8;m>1;m--)
+      for(var m=8;m>=1;m--)
        {
-        for(var n=8;n>1;n--)
+        for(var n=8;n>=1;n--)
          {
           var input = document.createElement('input');
           input.type = "checkbox";
@@ -28,6 +28,7 @@
 
       document.getElementById('8,8').focus();
       var x = y = 8;
+      var value = 0;
       
       document.onkeydown = function(evt)
        {
@@ -71,7 +72,21 @@
         if (evt.ctrlKey && evt.keyCode == 65) //C-a
          {
           alert("C-a");
-         }
+          for(var m=8;m>=1;m--)
+           {
+            value = 0;
+            for(var n=8;n>=1;n--)
+             {
+              if(document.getElementById(m.toString() + ',' + n.toString()).checked)
+              {
+               value += Math.pow(2, n-1);
+               //alert("Checada" + m.toString() + ',' + n.toString());
+              }
+             }
+             document.getElementById('codigo').innerHTML += value + ' ';
+           }
+           document.getElementById('codigo').innerHTML += ';\n';
+          }
                         
 
         if (evt.altKey && evt.keyCode == 37)
