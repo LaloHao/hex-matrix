@@ -5,6 +5,8 @@
   <body>
 
     <div id="container"></div>
+    Nombre del archivo </br>
+    <input id="filename" type="text" value="info.txt"></br>
 
     <textarea id="codigo"></textarea>
     <a download="info.txt" id="downloadlink" style="display: none">
@@ -64,6 +66,7 @@
 
         if (evt.ctrlKey && evt.keyCode == 71) //C-g
          {
+          document.getElementById('downloadlink').download = document.getElementById('filename').value;
           document.getElementById('downloadlink').href = makeTextFile(codigo.value);
           document.getElementById('downloadlink').style.display = 'block';
           document.getElementById('hora').innerHTML = "Generado " + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
