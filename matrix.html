@@ -32,14 +32,23 @@
       var x = y = 8;
       var value = 0;
       var repeticion = 8;
-      
+
+      ayuda = "Ctrl-<Flechas> Mover arriba, abajo, izq., der. en la matriz.\n";
+      ayuda += "ESPACIO Activa/Desactiva la casilla seleccionada\n"
+      ayuda += "Ctrl-a Agregar matriz actual al buffer\n";
+      ayuda += "Ctrl-g Generar archivo para descargar a partir del buffer actual\n";
+      ayuda += "\n";
+      ayuda += "Ctrl+0 Limpia la matriz actual\n";
+        
       document.onkeydown = function(evt)
        {
         evt = evt || window.event;
-                        
+
+        evt.preventDefault();
+      
         if (evt.ctrlKey && evt.keyCode == 72)
          {
-          alert("Ayuda");
+          alert(ayuda);
          }
 
         if (evt.ctrlKey && evt.keyCode == 37) //izquierda
