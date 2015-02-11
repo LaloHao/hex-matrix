@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Dibujar matrices</title>
+    <style type="text/css">
+      input[type=checkbox].css-checkbox {
+      position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; m\
+      argin:-1px; padding:0; border:0;
+      }
+
+      input[type=checkbox].css-checkbox + label.css-label {
+      padding-left:25px;
+      height:20px;
+      display:inline-block;
+      line-height:20px;
+      background-repeat:no-repeat;
+      background-position: 0 0;
+      font-size:20px;
+      vertical-align:middle;
+      cursor:pointer;
+
+      }
+
+      input[type=checkbox].css-checkbox:checked + label.css-label {
+      background-position: 0 -20px;
+      }
+      label.css-label {
+      background-image:url(black.png);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      }
+    </style>
   </head>
   <body>
 
@@ -22,8 +55,14 @@
           var input = document.createElement('input');
           input.type = "checkbox";
           input.id = m.toString() + ',' + n.toString();
-                                      
+          input.className = "css-checkbox";
+      
+          var label = document.createElement('label');
+          label.htmlFor = m.toString() + ',' + n.toString();
+          label.className = "css-label"
+      
           container.appendChild(input);
+          container.appendChild(label);
          }
        container.appendChild(document.createElement('br'));
       }
