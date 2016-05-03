@@ -1,0 +1,11 @@
+* hex-matrix
+  Genera archivos =hex= que pueden programarse en EEPROMs para encnder matrices de LEDs 8x8.
+
+  + En dos pasos:
+    1. Abre el archivo "matrix.html" y dibuja tus matrices.
+      + Presiona Ctr-H para recibir ayuda
+    2. Arrastra el archivo generado en el paso 1 al programa "generador.bat"
+
+  Abre el archivo de Proteus y carga el archivo =hex= a la EEPROM.
+  
+  Video de como utilizarlo: 
